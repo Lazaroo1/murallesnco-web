@@ -1,75 +1,32 @@
-# React + TypeScript + Vite
+﻿# Muralles & Co. Holdings
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web informativo para **Muralles & Co.**, una sociedad holding enfocada en inversión de capital, estructura empresarial y alianzas estratégicas.
 
-Currently, two official plugins are available:
+Muralles & Co. no fabrica ni vende productos directamente. Su función es administrar, invertir y acompañar empresas del grupo, construyendo relaciones de largo plazo y oportunidades de crecimiento compartido.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+La página presenta una identidad minimalista, moderna y sobria. Su objetivo es comunicar qué hace la holding, mostrar las empresas relacionadas y abrir una puerta de contacto para personas o negocios que buscan capital, estructura o alianzas.
 
-## React Compiler
+## Empresas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Gamacell
+- Quintana's Blend
+- Palacios Brothers
+- Momentos GT
+- Mundo Aceites
 
-## Expanding the ESLint configuration
+## Propósito del sitio
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Comunicar de forma simple:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Qué es Muralles & Co.
+- Qué tipo de valor aporta como holding.
+- Qué empresas forman parte del ecosistema.
+- Cómo iniciar una conversación mediante un formulario de contacto.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Vitest

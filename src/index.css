@@ -10,6 +10,8 @@
 
 @layer base {
   :root {
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
     color-scheme: dark;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -28,23 +30,32 @@
     min-height: 100vh;
     background: var(--color-bg);
     color: var(--color-text);
-    font-family: var(--font-sans);
+    font-family: 'Inter', sans-serif;
   }
 
   #root {
     min-height: 100vh;
   }
 
-  button, a {
+  h1,
+  h2,
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+  }
+
+  button,
+  a {
     font: inherit;
   }
 }
 
 @layer utilities {
   .font-serif-custom {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', serif !important;
   }
+
   .font-sans-custom {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif !important;
   }
 }

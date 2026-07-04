@@ -1,6 +1,7 @@
 ﻿import GalleryBackground from './GalleryBackground'
 
 const galleryImages = [
+  '/gallery/quince.png',
   '/gallery/uno.png',
   '/gallery/dos.jpg',
   '/gallery/tres.png',
@@ -17,7 +18,6 @@ const galleryImages = [
   '/gallery/doce.png',
   '/gallery/trece.png',
   '/gallery/catorce.png',
-  '/gallery/quince.png',
 ]
 
 function Hero() {
@@ -32,22 +32,26 @@ function Hero() {
     >
       <GalleryBackground imagePaths={galleryImages} />
 
-      <div className="relative z-10 flex flex-col items-center gap-8 px-6">
+      <div className="relative z-10 flex flex-col items-center gap-10 px-6 pt-16">
         <h1
-          className="font-serif-custom m-0 max-w-5xl font-normal text-white"
-          style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1.05, letterSpacing: '0.01em' }}
+          className="font-serif-custom m-0 max-w-6xl font-normal text-white"
+          style={{
+            fontSize: 'clamp(3.8rem, 8.2vw, 7rem)',
+            lineHeight: 0.98,
+            letterSpacing: '0.005em',
+          }}
         >
           Capital. Visión. Alianzas.
         </h1>
 
         <button
           type="button"
-          className="font-serif-custom border border-white bg-transparent text-white transition-colors hover:bg-white/10"
+          className="font-serif-custom border border-white/90 bg-transparent text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           style={{
-            padding: '0.75rem 2.5rem',
-            fontSize: '1rem',
+            padding: '0.78rem 3rem',
+            fontSize: '1.35rem',
             fontWeight: 400,
-            letterSpacing: '0.05em',
+            letterSpacing: '0.02em',
           }}
           onClick={scrollToContact}
         >
