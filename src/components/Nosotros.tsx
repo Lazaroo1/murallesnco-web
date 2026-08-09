@@ -22,11 +22,12 @@ const galleryImages = [
 
 function Nosotros() {
   return (
-    <section id="nosotros" className="relative min-h-screen overflow-hidden bg-black">
+    <section id="nosotros" style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', backgroundColor: '#0a0a0a' }}>
       <GalleryBackground
         imagePaths={galleryImages}
         initialIndex={1}
-        className="absolute inset-0 overflow-hidden"        
+        className="absolute inset-0 overflow-hidden"
+        imageClassName="absolute inset-0 w-full h-full object-cover"
         overlayClassName="absolute inset-0 bg-black/75"
       />
 
