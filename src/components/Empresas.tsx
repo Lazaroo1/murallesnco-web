@@ -1,3 +1,25 @@
+import GalleryBackground from './GalleryBackground'
+
+const galleryImages = [
+  '/gallery/quince.png',
+  '/gallery/uno.png',
+  '/gallery/dos.jpg',
+  '/gallery/tres.png',
+  '/gallery/cuatro.png',
+  '/gallery/cinco.png',
+  '/gallery/seis.png',
+  '/gallery/siete.png',
+  '/gallery/d7.png',
+  '/gallery/ocho.png',
+  '/gallery/nueve.png',
+  '/gallery/diez.png',
+  '/gallery/diez6.png',
+  '/gallery/once.png',
+  '/gallery/doce.png',
+  '/gallery/trece.png',
+  '/gallery/catorce.png',
+]
+
 const companyNames = [
   'Gamacell',
   "Quintana's Blend",
@@ -10,9 +32,18 @@ function Empresas() {
   return (
     <section
       id="empresas"
-      className="min-h-screen bg-[#0a0a0a] px-6 py-24 text-white md:px-10 lg:px-16"
+      className="relative min-h-screen overflow-hidden bg-[#0a0a0a] px-6 py-24 text-white md:px-10 lg:px-16"
     >
-      <div className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center">
+      <GalleryBackground
+        imagePaths={galleryImages}
+        initialIndex={2}
+        firstImageLoading="eager"
+        className="absolute inset-0 overflow-hidden"
+        imageClassName="absolute inset-0 w-full h-full object-cover"
+        overlayClassName="absolute inset-0 bg-black/85"
+      />
+
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center">
         <h2 className="m-0 text-center font-serif-custom text-[clamp(2.5rem,7vw,5rem)] font-normal leading-none text-white">
           Nuestras empresas
         </h2>
