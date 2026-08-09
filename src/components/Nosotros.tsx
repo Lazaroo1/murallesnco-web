@@ -26,8 +26,7 @@ function Nosotros() {
       <GalleryBackground
         imagePaths={galleryImages}
         initialIndex={1}
-        className="absolute inset-0 h-full w-full overflow-hidden"
-        overlayClassName="absolute inset-0 bg-black/75"
+        className="absolute inset-0 overflow-hidden"        overlayClassName="absolute inset-0 bg-black/75"
       />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20 md:px-16 lg:px-24">
