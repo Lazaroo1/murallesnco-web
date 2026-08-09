@@ -27,15 +27,18 @@ function Empresas() {
           {companyNames.map((companyName, index) => (
             <article
               key={companyName}
-              className={`flex h-[200px] items-center justify-center border border-white/20 bg-[#111] p-5 text-center transition-colors duration-300 hover:border-white/50 ${
+              className={`group flex min-h-[200px] items-center justify-center border-b border-white/15 bg-[#0d0d0d] px-5 py-16 text-center ${
                 index === companyNames.length - 1
                   ? 'col-span-2 mx-auto w-[calc(50%_-_0.5rem)] md:col-span-1 md:mx-0 md:w-full'
                   : ''
               }`}
             >
-              <h3 className="m-0 font-serif-custom text-2xl font-normal leading-tight text-white md:text-xl lg:text-2xl">
-                {companyName}
-              </h3>
+              <div>
+                <span className="mx-auto mb-5 block h-px w-10 bg-white/40 transition-[width] duration-[400ms] ease-in-out group-hover:w-20" />
+                <h3 className="m-0 font-serif-custom text-[1.3rem] font-light leading-tight text-white opacity-80 transition-opacity duration-[400ms] ease-in-out group-hover:opacity-100">
+                  {companyName}
+                </h3>
+              </div>
             </article>
           ))}
         </div>

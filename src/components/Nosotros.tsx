@@ -1,6 +1,7 @@
-﻿import GalleryBackground from './GalleryBackground'
+import GalleryBackground from './GalleryBackground'
 
 const galleryImages = [
+  '/gallery/quince.png',
   '/gallery/uno.png',
   '/gallery/dos.jpg',
   '/gallery/tres.png',
@@ -17,13 +18,19 @@ const galleryImages = [
   '/gallery/doce.png',
   '/gallery/trece.png',
   '/gallery/catorce.png',
-  '/gallery/quince.png',
 ]
 
 function Nosotros() {
   return (
-    <section id="nosotros" className="grid min-h-screen bg-black md:grid-cols-2">
-      <div className="order-2 flex items-center px-6 py-20 md:order-1 md:px-16 lg:px-24">
+    <section id="nosotros" className="relative min-h-screen overflow-hidden bg-black">
+      <GalleryBackground
+        imagePaths={galleryImages}
+        initialIndex={1}
+        className="absolute inset-0 h-full w-full overflow-hidden"
+        overlayClassName="absolute inset-0 bg-black/75"
+      />
+
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-20 md:px-16 lg:px-24">
         <div className="max-w-xl">
           <h2 className="m-0 font-serif-custom text-[clamp(2rem,5vw,3.5rem)] font-normal leading-tight text-white">
             No fabricamos. Construimos estructuras que perduran.
@@ -47,14 +54,6 @@ function Nosotros() {
             </p>
           </div>
         </div>
-      </div>
-
-      <div className="relative order-1 min-h-[50vh] overflow-hidden md:order-2 md:min-h-screen">
-        <GalleryBackground
-          imagePaths={galleryImages}
-          className="absolute inset-0 h-full w-full overflow-hidden"
-          overlayClassName="absolute inset-0 bg-black/35"
-        />
       </div>
     </section>
   )

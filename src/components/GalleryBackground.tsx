@@ -8,6 +8,7 @@ type GalleryBackgroundProps = {
   intervalMs?: number
   transitionMs?: number
   firstImageLoading?: 'eager' | 'lazy'
+  initialIndex?: number
 }
 
 function GalleryBackground({
@@ -18,8 +19,11 @@ function GalleryBackground({
   intervalMs = 8000,
   transitionMs = 1500,
   firstImageLoading = 'eager',
+  initialIndex = 0,
 }: GalleryBackgroundProps) {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(() =>
+    imagePaths.length === 0 ? 0 : initialIndex % imagePaths.length,
+  )
   const [pendingIndex, setPendingIndex] = useState<number | null>(null)
   const [isCrossfading, setIsCrossfading] = useState(false)
 
