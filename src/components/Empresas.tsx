@@ -61,6 +61,7 @@ function Empresas() {
                 imagePaths={company.imagePaths}
                 className="absolute inset-0 h-full w-full overflow-hidden transition-transform duration-700 group-hover:scale-105"
                 overlayClassName="absolute inset-0 bg-black/55"
+                firstImageLoading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/65" />
 

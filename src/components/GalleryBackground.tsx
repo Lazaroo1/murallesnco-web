@@ -7,6 +7,7 @@ type GalleryBackgroundProps = {
   overlayClassName?: string
   intervalMs?: number
   transitionMs?: number
+  firstImageLoading?: 'eager' | 'lazy'
 }
 
 function GalleryBackground({
@@ -16,20 +17,23 @@ function GalleryBackground({
   overlayClassName = 'absolute inset-0 bg-black/50',
   intervalMs = 8000,
   transitionMs = 1500,
+  firstImageLoading = 'eager',
 }: GalleryBackgroundProps) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [pendingIndex, setPendingIndex] = useState<number | null>(null)
+  const [isCrossfading, setIsCrossfading] = useState(false)
 
   useEffect(() => {
-    if (imagePaths.length <= 1) {
+    if (imagePaths.length <= 1 || pendingIndex !== null) {
       return
     }
 
-    const intervalId = window.setInterval(() => {
-      setActiveIndex((index) => (index + 1) % imagePaths.length)
+    const timeoutId = window.setTimeout(() => {
+      setPendingIndex((activeIndex + 1) % imagePaths.length)
     }, intervalMs)
 
-    return () => window.clearInterval(intervalId)
-  }, [imagePaths.length, intervalMs])
+    return () => window.clearTimeout(timeoutId)
+  }, [activeIndex, imagePaths.length, intervalMs, pendingIndex])
 
   if (imagePaths.length === 0) {
     return <div className="absolute inset-0 bg-black" aria-hidden="true" />
@@ -37,17 +41,36 @@ function GalleryBackground({
 
   return (
     <div className={className} aria-hidden="true">
-      {imagePaths.map((imagePath, index) => (
+      <img
+        key={imagePaths[activeIndex]}
+        src={imagePaths[activeIndex]}
+        alt=""
+        loading={activeIndex === 0 ? firstImageLoading : 'lazy'}
+        className={imageClassName}
+      />
+      {pendingIndex !== null && (
         <img
-          key={imagePath}
-          src={imagePath}
+          key={imagePaths[pendingIndex]}
+          src={imagePaths[pendingIndex]}
           alt=""
+          loading={pendingIndex === 0 ? firstImageLoading : 'lazy'}
           className={`${imageClassName} transition-opacity ease-in-out ${
-            index === activeIndex ? 'opacity-100' : 'opacity-0'
+            isCrossfading ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ transitionDuration: `${transitionMs}ms` }}
+          onLoad={() => setIsCrossfading(true)}
+          onError={() => setPendingIndex(null)}
+          onTransitionEnd={(event) => {
+            if (event.propertyName !== 'opacity' || !isCrossfading) {
+              return
+            }
+
+            setActiveIndex(pendingIndex)
+            setPendingIndex(null)
+            setIsCrossfading(false)
+          }}
         />
-      ))}
+      )}
       <div className={overlayClassName} />
     </div>
   )

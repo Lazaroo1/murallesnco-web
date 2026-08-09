@@ -1,4 +1,5 @@
-﻿import GalleryBackground from './GalleryBackground'
+﻿import { useEffect } from 'react'
+import GalleryBackground from './GalleryBackground'
 
 const galleryImages = [
   '/gallery/quince.png',
@@ -21,6 +22,16 @@ const galleryImages = [
 ]
 
 function Hero() {
+  useEffect(() => {
+    const preload = document.createElement('link')
+    preload.rel = 'preload'
+    preload.as = 'image'
+    preload.href = galleryImages[0]
+    document.head.appendChild(preload)
+
+    return () => preload.remove()
+  }, [])
+
   const scrollToContact = () => {
     document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })
   }

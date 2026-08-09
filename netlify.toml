@@ -12,6 +12,11 @@
   [headers.values]
     Content-Type = "application/javascript"
 
+[[headers]]
+  for = "/gallery/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
