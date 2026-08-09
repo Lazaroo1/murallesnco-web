@@ -1,25 +1,3 @@
-﻿import GalleryBackground from './GalleryBackground'
-
-const galleryImages = [
-  '/gallery/uno.png',
-  '/gallery/dos.jpg',
-  '/gallery/tres.png',
-  '/gallery/cuatro.png',
-  '/gallery/cinco.png',
-  '/gallery/seis.png',
-  '/gallery/siete.png',
-  '/gallery/d7.png',
-  '/gallery/ocho.png',
-  '/gallery/nueve.png',
-  '/gallery/diez.png',
-  '/gallery/diez6.png',
-  '/gallery/once.png',
-  '/gallery/doce.png',
-  '/gallery/trece.png',
-  '/gallery/catorce.png',
-  '/gallery/quince.png',
-]
-
 const companyNames = [
   'Gamacell',
   "Quintana's Blend",
@@ -27,14 +5,6 @@ const companyNames = [
   'Momentos',
   'Mundo Aceites',
 ]
-
-const companies = companyNames.map((name, index) => ({
-  name,
-  imagePaths: [
-    ...galleryImages.slice(index * 3),
-    ...galleryImages.slice(0, index * 3),
-  ],
-}))
 
 function Empresas() {
   return (
@@ -47,26 +17,24 @@ function Empresas() {
           Nuestras empresas
         </h2>
 
+        <p className="mx-auto mt-8 max-w-3xl text-center text-base font-light leading-relaxed text-white/70 md:text-lg">
+          Contamos con empresas respaldadas por el capital de la firma en las
+          industrias de creación de contenido, retail, manufactura de hardware
+          y distribución de aceites para motor.
+        </p>
+
         <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-5 md:gap-5">
-          {companies.map((company, index) => (
+          {companyNames.map((companyName, index) => (
             <article
-              key={company.name}
-              className={`group relative h-[400px] overflow-hidden border border-white/15 bg-neutral-950 ${
-                index === companies.length - 1
+              key={companyName}
+              className={`flex h-[200px] items-center justify-center border border-white/20 bg-[#111] p-5 text-center transition-colors duration-300 hover:border-white/50 ${
+                index === companyNames.length - 1
                   ? 'col-span-2 mx-auto w-[calc(50%_-_0.5rem)] md:col-span-1 md:mx-0 md:w-full'
                   : ''
               }`}
             >
-              <GalleryBackground
-                imagePaths={company.imagePaths}
-                className="absolute inset-0 h-full w-full overflow-hidden transition-transform duration-700 group-hover:scale-105"
-                overlayClassName="absolute inset-0 bg-black/55"
-                firstImageLoading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/65" />
-
-              <h3 className="relative z-10 m-0 p-5 font-serif-custom text-2xl font-normal leading-tight text-white md:text-xl lg:text-2xl">
-                {company.name}
+              <h3 className="m-0 font-serif-custom text-2xl font-normal leading-tight text-white md:text-xl lg:text-2xl">
+                {companyName}
               </h3>
             </article>
           ))}
